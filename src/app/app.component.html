@@ -1,12 +1,34 @@
 <div class="wrapper">
-  <div class="row">
-    <div class="col-lg-4">
+  <div class="row between-lg middle-lg">
+    <div class="col-lg">
       <h1>Assets Map</h1>
     </div>
-    <div class="col-lg-8">
-      <button>Add Asset</button>
+    <div class="col-lg">
+      <div class="row end-lg">
+        <div class="search-box">
+          <mat-form-field class="example-form-field">
+            <mat-label>Search asset</mat-label>
+            <input matInput type="text" [(ngModel)]="value">
+            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+          
+          <button mat-raised-button color="primary" class="add">Add Asset</button>
+        </div>
+        
+      </div>
+      
     </div>
   </div>
 </div>
-<app-map></app-map>
-<app-tracks></app-tracks>
+<div class="wrapper">
+  <div class="row">
+    <div class="col-lg-6">
+      <app-map></app-map>
+    </div>
+    <div class="col-lg-6">
+      <app-tracks></app-tracks>
+    </div>
+  </div>
+</div>
