@@ -8,13 +8,13 @@
         <div class="search-box">
           <mat-form-field class="example-form-field">
             <mat-label>Search asset</mat-label>
-            <input matInput type="text" [(ngModel)]="value">
+            <input matInput type="text">
             <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
               <mat-icon>close</mat-icon>
             </button>
           </mat-form-field>
           
-          <button mat-raised-button color="primary" class="add">Add Asset</button>
+          <button mat-raised-button color="primary" class="add" (click)="openDialog()">Add Asset</button>
         </div>
         
       </div>

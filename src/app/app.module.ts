@@ -15,12 +15,20 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
+import {MatDialogModule} from '@angular/material/dialog';
+
+import { DialogTrackComponent } from './dialog-track/dialog-track.component';
+// import {MatDialog} from "@angular/material/dialog";
+
+// import { DialogNewTrackComponent } from './layout/dialog/dialog-new-track/dialog-new-track.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TracksComponent,
-    MapComponent
+    MapComponent,
+    DialogTrackComponent,
+    // DialogNewTrackComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +38,11 @@ import {MatListModule} from '@angular/material/list';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogTrackComponent]
 })
 export class AppModule { }
