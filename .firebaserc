@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "tracks-a61b6"
+  },
+  "targets": {
+    "tracks-a61b6": {
+      "hosting": {
+        "track": [
+          "tracks-a61b6"
+        ]
+      }
+    }
   }
 }

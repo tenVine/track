@@ -9,7 +9,13 @@ import { MapComponent } from './map/map.component';
 
 import { GoogleMapsModule } from '@angular/google-maps';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { environment } from 'src/environments/environment';
 
 import {MatInputModule} from '@angular/material/input'; 
 import {MatIconModule} from '@angular/material/icon';
@@ -18,6 +24,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
 
 import { DialogTrackComponent } from './dialog-track/dialog-track.component';
+import { DialogTrackDeleteComponent } from './layout/dialog-track-delete/dialog-track-delete.component';
+import { ListFilterPipe } from './tracks/list-filter.pipe';
 // import {MatDialog} from "@angular/material/dialog";
 
 // import { DialogNewTrackComponent } from './layout/dialog/dialog-new-track/dialog-new-track.component';
@@ -28,6 +36,8 @@ import { DialogTrackComponent } from './dialog-track/dialog-track.component';
     TracksComponent,
     MapComponent,
     DialogTrackComponent,
+    DialogTrackDeleteComponent,
+    ListFilterPipe,
     // DialogNewTrackComponent
   ],
   imports: [
@@ -39,7 +49,12 @@ import { DialogTrackComponent } from './dialog-track/dialog-track.component';
     MatIconModule,
     MatButtonModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

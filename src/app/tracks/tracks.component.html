@@ -1,5 +1,4 @@
-<mat-list>
-    <mat-list-item> Pepper </mat-list-item>
-    <mat-list-item> Salt </mat-list-item>
-    <mat-list-item> Paprika </mat-list-item>
-   </mat-list>
+<div class="col-sm-6 truck-item" *ngFor="let track of tracks | listFilter: searchModel">
+<span>{{ track.name }}</span>
+<mat-icon aria-hidden="false" aria-label="Example home icon" (click)="deleteDialog(track.id)">close</mat-icon>
+</div>

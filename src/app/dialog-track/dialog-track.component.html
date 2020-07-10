@@ -1,19 +1,47 @@
 <h2 mat-dialog-title>Add new asset</h2>
-<mat-dialog-content class="mat-typography">
-    <mat-form-field class="example-full-width">
-        <mat-label>Name</mat-label>
-        <input matInput>
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-        <mat-label>Latitude</mat-label>
-        <input matInput>
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-        <mat-label>Longitude</mat-label>
-        <input matInput>
-    </mat-form-field>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Add</button>
-</mat-dialog-actions>
+<form [formGroup]="trackForm" *ngIf="track">
+    <mat-dialog-content class="mat-typography">
+        <mat-form-field class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input 
+                type="text"
+                matInput
+                id="name"
+                formControlName="name"
+                #trackName
+                placeholder="Track name"
+                >
+                <mat-error *ngIf="handleError('name', 'required')">
+                    You must provide a <strong>track name</strong>
+                </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Latitude</mat-label>
+            <input 
+                matInput
+                id="lat"
+                formControlName="lat"
+                #trackLat
+                placeholder="Track Latitude">
+                <mat-error *ngIf="handleError('lat', 'required')">
+                    You must provide a <strong>Latitude</strong>
+                </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Longitude</mat-label>
+            <input 
+                matInput
+                id="lon"
+                formControlName="lon"
+                #trackLon
+                placeholder="Track Longitude">
+                <mat-error *ngIf="handleError('lon', 'required')">
+                    You must provide a <strong>Longitude</strong>
+                </mat-error>
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button type="submit" class="btn-primary btn" [disabled]="trackForm.invalid" mat-button mat-dialog-close (click)="onSubmit()">Add track</button>
+    </mat-dialog-actions>
+</form>
