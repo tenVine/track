@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Track } from '../models/track.model';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
@@ -28,6 +28,12 @@ export class TrackService {
         return track;
       })
     }))
+  }
+
+  getTrack_2(start, end): AngularFireList<any> {
+    return this.db.list('/tracks', ref => {
+      return ref.orderByChild('name').limitToFirst(10).startAt(start).endAt(end);
+    });
   }
 
   getTrack(id) {

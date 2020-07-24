@@ -1,4 +1,6 @@
-<div class="col-sm-6 truck-item" *ngFor="let track of tracks | listFilter: searchModel">
-<span>{{ track.name }}</span>
-<mat-icon aria-hidden="false" aria-label="Example home icon" (click)="deleteDialog(track.id)">close</mat-icon>
+
+<input type="text" (keydown)="search($event)" placeholder="search...">
+<div class="col-sm-6 truck-item" *ngFor="let track of tracks | listFilter: searchModel | async">
+    <span>{{ track.name }}</span>
+    <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="deleteDialog(track.id)">close</mat-icon>
 </div>
